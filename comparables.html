@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparables — Arkansas Wolves Investor Prospectus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0a0a0a; --ink:#141414; --char:#1f1f1f;
+  --gold:#e8b30b; --gold-warm:#d99e00;
+  --bone:#f5f3ee; --grey:#8a8a8a; --grey-mid:#4a4a4a;
+  --line:rgba(232,179,11,0.18);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--black); color:var(--bone);
+  font-family:'Inter',-apple-system,sans-serif; font-weight:400; line-height:1.5;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+.container { max-width:1400px; margin:0 auto; padding:0 48px; }
+.container-narrow { max-width:1200px; margin:0 auto; padding:0 48px; }
+
+/* NAV */
+.nav {
+  position:fixed; top:0; left:0; right:0;
+  padding:22px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+  z-index:100;
+  background:linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0));
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.nav-brand { display:flex; align-items:center; gap:14px; }
+.crest { width:44px; height:44px; object-fit:contain; display:block; }
+.wordmark { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:3px; }
+.wordmark span { color:var(--gold); }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a {
+  font-size:12px; font-weight:500; letter-spacing:1.6px; text-transform:uppercase;
+  padding:6px 0; border-bottom:1px solid transparent; transition:border-color 0.2s, color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--gold); border-bottom-color:var(--gold); }
+.nav-cta {
+  background:var(--gold); color:var(--black);
+  padding:12px 22px; font-size:12px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase; transition:background 0.2s;
+}
+.nav-cta:hover { background:var(--gold-warm); }
+
+/* HERO (subpage variant — shorter than home) */
+.page-hero {
+  min-height:70vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:160px 48px 80px;
+  position:relative; background:#0a0a0a; overflow:hidden;
+}
+.page-hero-bg {
+  position:absolute; inset:0; overflow:hidden; z-index:0;
+}
+.page-hero-bg::after {
+  content:""; position:absolute; inset:0; z-index:2;
+  background:
+    linear-gradient(105deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.65) 30%, rgba(10,10,10,0.4) 70%, rgba(10,10,10,0.6) 100%),
+    linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 30%, rgba(10,10,10,0) 70%, rgba(10,10,10,0.95) 100%);
+}
+.page-hero-bg .hero-video, .page-hero-bg .hero-img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center; z-index:1;
+}
+.page-hero-bg.skyline {
+  background-image:url('IMG_PLACEHOLDER'); background-size:cover; background-position:center;
+}
+.page-hero-bg.abstract {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(232,179,11,0.08), transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+}
+.page-hero-bg.abstract::after { display:none; }
+.page-hero-bg.abstract::before {
+  content:""; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(232,179,11,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,179,11,0.03) 1px, transparent 1px);
+  background-size:80px 80px;
+}
+.page-hero-content {
+  position:relative; z-index:3;
+}
+.page-eyebrow {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold);
+  margin-bottom:24px;
+}
+.page-eyebrow::before { content:""; width:32px; height:1px; background:var(--gold); }
+.page-headline {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px, 7vw, 96px);
+  line-height:0.95; letter-spacing:-0.5px;
+  margin-bottom:24px; max-width:1100px;
+}
+.page-headline .gold { color:var(--gold); }
+.page-sub {
+  max-width:680px; font-size:19px; line-height:1.55; font-weight:300;
+  color:rgba(245,243,238,0.78);
+}
+
+/* SECTION SHELL */
+.section { padding:120px 48px; }
+.section-tight { padding:80px 48px; }
+.section-label {
+  font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:24px;
+}
+.section-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px, 5vw, 64px);
+  line-height:1; letter-spacing:0.5px;
+  margin-bottom:40px;
+}
+.section-title .gold { color:var(--gold); }
+.section-lede {
+  font-size:21px; line-height:1.55; color:rgba(245,243,238,0.85); font-weight:300;
+  max-width:780px; margin-bottom:48px;
+}
+.section-lede strong { color:var(--bone); font-weight:500; }
+.section + .section { border-top:1px solid var(--line); }
+.section-dark { background:var(--ink); }
+.divider { height:1px; background:var(--line); }
+
+/* TWO-COL */
+.two-col {
+  display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start;
+}
+
+/* CARDS */
+.cards {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+}
+.cards.cards-2 { grid-template-columns:repeat(2,1fr); }
+.cards.cards-4 { grid-template-columns:repeat(4,1fr); }
+.card {
+  background:var(--ink); padding:40px 36px;
+  display:flex; flex-direction:column;
+  min-height:280px; position:relative;
+}
+.card-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:14px; letter-spacing:3px; color:var(--gold); margin-bottom:16px;
+}
+.card-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px; line-height:1; letter-spacing:0.5px; margin-bottom:14px;
+}
+.card-blurb {
+  font-size:15px; line-height:1.55; color:rgba(245,243,238,0.7); font-weight:300; flex:1;
+}
+.card-meta {
+  margin-top:20px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--grey);
+}
+
+/* STATS STRIP */
+.stats {
+  background:var(--ink);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  padding:56px 48px;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+}
+.stat { padding-left:20px; border-left:2px solid var(--gold); }
+.stat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px; line-height:1; margin-bottom:8px;
+}
+.stat-num span { color:var(--gold); }
+.stat-label {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--grey); font-weight:500;
+}
+
+/* QUOTE BLOCK */
+.quote {
+  border-left:3px solid var(--gold); padding:20px 0 20px 28px; margin:48px 0;
+  max-width:880px;
+}
+.quote p {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px, 3.5vw, 44px);
+  line-height:1.05; margin-bottom:16px;
+}
+.quote cite {
+  font-style:normal; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--grey);
+}
+
+/* IMAGE/VIDEO PLACEHOLDERS */
+.placeholder {
+  background:#1a1a1a; border:1px dashed rgba(232,179,11,0.3);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(245,243,238,0.4); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  text-align:center; padding:24px;
+}
+.placeholder-16x9 { aspect-ratio:16/9; }
+.placeholder-square { aspect-ratio:1/1; }
+.placeholder-portrait { aspect-ratio:3/4; }
+
+/* BUTTONS */
+.btn-primary {
+  background:var(--gold); color:var(--black);
+  padding:18px 32px; font-size:13px; font-weight:700;
+  letter-spacing:1.8px; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:10px; transition:background 0.2s, transform 0.2s;
+}
+.btn-primary::after { content:"→"; font-size:16px; }
+.btn-primary:hover { background:var(--gold-warm); transform:translateY(-1px); }
+.btn-ghost {
+  background:transparent; color:var(--bone);
+  border:1px solid rgba(245,243,238,0.25);
+  padding:18px 28px; font-size:13px; font-weight:500;
+  letter-spacing:1.5px; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:10px;
+}
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+/* CTA BLOCK */
+.cta-block {
+  background:linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding:140px 48px; text-align:center; overflow:hidden;
+  border-top:1px solid var(--line); position:relative;
+}
+.cta-block::before {
+  content:""; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:800px; height:800px;
+  background:radial-gradient(circle, rgba(232,179,11,0.05), transparent 70%);
+}
+.cta-quote {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px, 5vw, 64px); line-height:1.05;
+  max-width:900px; margin:0 auto 32px; position:relative; z-index:2;
+}
+.cta-quote .gold { color:var(--gold); }
+.cta-attrib {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--grey);
+  margin-bottom:48px; position:relative; z-index:2;
+}
+
+/* FOOTER */
+.site-footer {
+  background:var(--black); padding:48px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:16px;
+}
+.footer-mark {
+  display:flex; align-items:center; gap:12px;
+  font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:2px;
+}
+.footer-mark span { color:var(--gold); }
+.footer-meta {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--grey-mid);
+}
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  .nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .container, .container-narrow { padding:0 24px; }
+  .page-hero { padding:140px 24px 60px; }
+  .section, .section-tight { padding:80px 24px; }
+  .two-col { grid-template-columns:1fr; gap:24px; }
+  .cards, .cards.cards-4, .cards.cards-2 { grid-template-columns:1fr; }
+  .stats { grid-template-columns:repeat(2,1fr); gap:32px 16px; padding:40px 24px; }
+  .cta-block { padding:80px 24px; }
+  .site-footer { padding:32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://static.wixstatic.com/media/931383_7a3ebebcefb54dc38237d5fd3ef981c5~mv2.png" alt="Arkansas Wolves crest" class="crest">
+    <span class="wordmark">ARKANSAS <span>WOLVES</span></span>
+  </a>
+  <ul class="nav-links"><li><a href="venue.html">The Venue</a></li><li><a href="why-little-rock.html">Why Little Rock</a></li><li><a href="opportunity.html">The Opportunity</a></li><li><a href="vision.html">The Vision</a></li><li><a href="comparables.html" class="active">Comparables</a></li><li><a href="team.html">The Team</a></li></ul>
+  <a href="#contact" class="nav-cta">Schedule a Call</a>
+</nav>
+
+
+<section class="page-hero">
+  <div class="page-hero-bg abstract"></div>
+  <div class="page-hero-content container">
+    <span class="page-eyebrow">05 / Proof</span>
+    <h1 class="page-headline">It's been done.<br><span class="gold">More than once.</span></h1>
+    <p class="page-sub">Building a pro soccer club from scratch is a real undertaking. It is not a hypothetical undertaking. Four recent clubs have done it well, and one of them was built by the person operating ours.</p>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container-narrow">
+    <div class="section-label">Case Study 01</div>
+    <h2 class="section-title">Sacramento Republic.<br><span class="gold">Idea to 30,000 seats.</span></h2>
+    <p class="section-lede">Founded in 2012. Launched in 2014. Opening night: 30,000 fans for a USL Championship match. Warren Smith — the consultant Ozark FC (Northwest Arkansas) eventually hired to launch their club — was the architect. The Sacramento Republic playbook is the most-studied model in lower-division American soccer for a reason: <strong>they got the venue, the brand, and the community on board before they sold a single ticket.</strong></p>
+    <div class="cards cards-4" style="margin-top:32px;">
+      <div class="card"><div class="card-num">Market</div><h3 class="card-title" style="font-size:22px;">Sacramento, CA</h3><p class="card-blurb">~2.4M metro · State capital · Underserved sports market</p></div>
+      <div class="card"><div class="card-num">Stadium</div><h3 class="card-title" style="font-size:22px;">Heart Health Park</h3><p class="card-blurb">11,442 capacity · Riverfront-adjacent · Concert-ready</p></div>
+      <div class="card"><div class="card-num">Opening</div><h3 class="card-title" style="font-size:22px;">30,000</h3><p class="card-blurb">Fans on opening night · Largest USL opening attendance to date</p></div>
+      <div class="card"><div class="card-num">Today</div><h3 class="card-title" style="font-size:22px;">10+ Years In</h3><p class="card-blurb">Sustained attendance, regional rivalries, franchise value 10x</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container-narrow">
+    <div class="section-label">Case Study 02</div>
+    <h2 class="section-title">Phoenix Rising.<br><span class="gold">27 days. $7.5M. Built.</span></h2>
+    <p class="section-lede">Ron Gilmore designed this stadium and ran the build personally. 27 days from broken ground to first match. Cost: $7.5M — a fraction of what comparable venues run. Location: alongside the most-used freeway in metropolitan Phoenix, the best billboard money never had to buy. Ownership: started as a single principal, transitioned to a multi-owner adjacency-business group, now thriving.</p>
+    <div class="cards cards-4" style="margin-top:32px;">
+      <div class="card"><div class="card-num">Build</div><h3 class="card-title" style="font-size:22px;">27 Days</h3><p class="card-blurb">Ground-broken to first match — the modular venue playbook in action</p></div>
+      <div class="card"><div class="card-num">Cost</div><h3 class="card-title" style="font-size:22px;">$7.5M</h3><p class="card-blurb">All-in capital cost — the floor for what's possible if executed well</p></div>
+      <div class="card"><div class="card-num">Academy</div><h3 class="card-title" style="font-size:22px;">Self-Sustaining</h3><p class="card-blurb">Youth program now funds the senior team's full operating budget</p></div>
+      <div class="card"><div class="card-num">Ownership</div><h3 class="card-title" style="font-size:22px;">Group Model</h3><p class="card-blurb">Multiple owners, complementary businesses, distributed risk</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-narrow">
+    <div class="section-label">Case Study 03 — The Closest Analog</div>
+    <h2 class="section-title">Rhode Island FC.<br><span class="gold">Riverfront blueprint.</span></h2>
+    <p class="section-lede">Providence, Rhode Island. Stadium on the river, with three of the five acres dedicated to the venue and the surrounding two acres developed as mixed-use — hotel, restaurants, walkable retail. The owner is a personal friend of Ron's. Their build is two years ahead of ours and is the closest mirror to what the Little Rock riverfront opportunity looks like — same metro size, same riverfront geometry, same downtown-revitalization thesis.</p>
+    <p class="section-lede"><strong>What they did right that we're modeling:</strong> they nailed the venue before they did anything else. Logo came after the venue. Brand came after the venue. Sponsorship deck came after the venue. When investors ask "where will they play," the answer was already on the table.</p>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container-narrow">
+    <div class="section-label">Case Study 04 — Small Market, Legacy Ownership</div>
+    <h2 class="section-title">Boise · Simplot.<br><span class="gold">A family decided to leave a legacy.</span></h2>
+    <p class="section-lede">Ron's most recent project. The Simplot family — the people whose company supplies every French fry McDonald's serves nationally — were not a soccer family until their kids started playing. The pitch wasn't return on investment. The pitch was: "Do you want your son to have a team to aspire to play for? Do you want to leave a legacy in this city?" The answer was yes. The result is a thriving club in a market the league said was too small to support pro soccer.</p>
+    <p class="section-lede">Little Rock is bigger than Boise. The conversation Ron will have with prospects here is, structurally, the same conversation.</p>
+  </div>
+</section>
+
+
+<section class="cta-block" id="contact">
+  <p class="cta-quote">Ready to talk through this in person?</p>
+  <p class="cta-attrib">— A conversation with Ron Gilmore is the next step</p>
+  <a href="mailto:hayley@sqr1.agency" class="btn-primary">Schedule a Conversation</a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-mark">
+    <img src="https://static.wixstatic.com/media/931383_7a3ebebcefb54dc38237d5fd3ef981c5~mv2.png" alt="" class="crest" style="width:36px;height:36px;">
+    ARKANSAS <span>WOLVES</span> FC
+  </div>
+  <div class="footer-meta">Investor Prospectus · Not for Public Distribution · © 2026 Arkansas Wolves FC</div>
+</footer>
+
+</body>
+</html>

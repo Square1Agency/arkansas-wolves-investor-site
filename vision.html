@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vision — Arkansas Wolves Investor Prospectus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#0a0a0a; --ink:#141414; --char:#1f1f1f;
+  --gold:#e8b30b; --gold-warm:#d99e00;
+  --bone:#f5f3ee; --grey:#8a8a8a; --grey-mid:#4a4a4a;
+  --line:rgba(232,179,11,0.18);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--black); color:var(--bone);
+  font-family:'Inter',-apple-system,sans-serif; font-weight:400; line-height:1.5;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+.container { max-width:1400px; margin:0 auto; padding:0 48px; }
+.container-narrow { max-width:1200px; margin:0 auto; padding:0 48px; }
+
+/* NAV */
+.nav {
+  position:fixed; top:0; left:0; right:0;
+  padding:22px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+  z-index:100;
+  background:linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0));
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.nav-brand { display:flex; align-items:center; gap:14px; }
+.crest { width:44px; height:44px; object-fit:contain; display:block; }
+.wordmark { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:3px; }
+.wordmark span { color:var(--gold); }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a {
+  font-size:12px; font-weight:500; letter-spacing:1.6px; text-transform:uppercase;
+  padding:6px 0; border-bottom:1px solid transparent; transition:border-color 0.2s, color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--gold); border-bottom-color:var(--gold); }
+.nav-cta {
+  background:var(--gold); color:var(--black);
+  padding:12px 22px; font-size:12px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase; transition:background 0.2s;
+}
+.nav-cta:hover { background:var(--gold-warm); }
+
+/* HERO (subpage variant — shorter than home) */
+.page-hero {
+  min-height:70vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:160px 48px 80px;
+  position:relative; background:#0a0a0a; overflow:hidden;
+}
+.page-hero-bg {
+  position:absolute; inset:0; overflow:hidden; z-index:0;
+}
+.page-hero-bg::after {
+  content:""; position:absolute; inset:0; z-index:2;
+  background:
+    linear-gradient(105deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.65) 30%, rgba(10,10,10,0.4) 70%, rgba(10,10,10,0.6) 100%),
+    linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 30%, rgba(10,10,10,0) 70%, rgba(10,10,10,0.95) 100%);
+}
+.page-hero-bg .hero-video, .page-hero-bg .hero-img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center; z-index:1;
+}
+.page-hero-bg.skyline {
+  background-image:url('IMG_PLACEHOLDER'); background-size:cover; background-position:center;
+}
+.page-hero-bg.abstract {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(232,179,11,0.08), transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+}
+.page-hero-bg.abstract::after { display:none; }
+.page-hero-bg.abstract::before {
+  content:""; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(232,179,11,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,179,11,0.03) 1px, transparent 1px);
+  background-size:80px 80px;
+}
+.page-hero-content {
+  position:relative; z-index:3;
+}
+.page-eyebrow {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold);
+  margin-bottom:24px;
+}
+.page-eyebrow::before { content:""; width:32px; height:1px; background:var(--gold); }
+.page-headline {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px, 7vw, 96px);
+  line-height:0.95; letter-spacing:-0.5px;
+  margin-bottom:24px; max-width:1100px;
+}
+.page-headline .gold { color:var(--gold); }
+.page-sub {
+  max-width:680px; font-size:19px; line-height:1.55; font-weight:300;
+  color:rgba(245,243,238,0.78);
+}
+
+/* SECTION SHELL */
+.section { padding:120px 48px; }
+.section-tight { padding:80px 48px; }
+.section-label {
+  font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:24px;
+}
+.section-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px, 5vw, 64px);
+  line-height:1; letter-spacing:0.5px;
+  margin-bottom:40px;
+}
+.section-title .gold { color:var(--gold); }
+.section-lede {
+  font-size:21px; line-height:1.55; color:rgba(245,243,238,0.85); font-weight:300;
+  max-width:780px; margin-bottom:48px;
+}
+.section-lede strong { color:var(--bone); font-weight:500; }
+.section + .section { border-top:1px solid var(--line); }
+.section-dark { background:var(--ink); }
+.divider { height:1px; background:var(--line); }
+
+/* TWO-COL */
+.two-col {
+  display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start;
+}
+
+/* CARDS */
+.cards {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+}
+.cards.cards-2 { grid-template-columns:repeat(2,1fr); }
+.cards.cards-4 { grid-template-columns:repeat(4,1fr); }
+.card {
+  background:var(--ink); padding:40px 36px;
+  display:flex; flex-direction:column;
+  min-height:280px; position:relative;
+}
+.card-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:14px; letter-spacing:3px; color:var(--gold); margin-bottom:16px;
+}
+.card-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px; line-height:1; letter-spacing:0.5px; margin-bottom:14px;
+}
+.card-blurb {
+  font-size:15px; line-height:1.55; color:rgba(245,243,238,0.7); font-weight:300; flex:1;
+}
+.card-meta {
+  margin-top:20px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--grey);
+}
+
+/* STATS STRIP */
+.stats {
+  background:var(--ink);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  padding:56px 48px;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+}
+.stat { padding-left:20px; border-left:2px solid var(--gold); }
+.stat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px; line-height:1; margin-bottom:8px;
+}
+.stat-num span { color:var(--gold); }
+.stat-label {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--grey); font-weight:500;
+}
+
+/* QUOTE BLOCK */
+.quote {
+  border-left:3px solid var(--gold); padding:20px 0 20px 28px; margin:48px 0;
+  max-width:880px;
+}
+.quote p {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px, 3.5vw, 44px);
+  line-height:1.05; margin-bottom:16px;
+}
+.quote cite {
+  font-style:normal; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--grey);
+}
+
+/* IMAGE/VIDEO PLACEHOLDERS */
+.placeholder {
+  background:#1a1a1a; border:1px dashed rgba(232,179,11,0.3);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(245,243,238,0.4); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  text-align:center; padding:24px;
+}
+.placeholder-16x9 { aspect-ratio:16/9; }
+.placeholder-square { aspect-ratio:1/1; }
+.placeholder-portrait { aspect-ratio:3/4; }
+
+/* BUTTONS */
+.btn-primary {
+  background:var(--gold); color:var(--black);
+  padding:18px 32px; font-size:13px; font-weight:700;
+  letter-spacing:1.8px; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:10px; transition:background 0.2s, transform 0.2s;
+}
+.btn-primary::after { content:"→"; font-size:16px; }
+.btn-primary:hover { background:var(--gold-warm); transform:translateY(-1px); }
+.btn-ghost {
+  background:transparent; color:var(--bone);
+  border:1px solid rgba(245,243,238,0.25);
+  padding:18px 28px; font-size:13px; font-weight:500;
+  letter-spacing:1.5px; text-transform:uppercase;
+  display:inline-flex; align-items:center; gap:10px;
+}
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+/* CTA BLOCK */
+.cta-block {
+  background:linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding:140px 48px; text-align:center; overflow:hidden;
+  border-top:1px solid var(--line); position:relative;
+}
+.cta-block::before {
+  content:""; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:800px; height:800px;
+  background:radial-gradient(circle, rgba(232,179,11,0.05), transparent 70%);
+}
+.cta-quote {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px, 5vw, 64px); line-height:1.05;
+  max-width:900px; margin:0 auto 32px; position:relative; z-index:2;
+}
+.cta-quote .gold { color:var(--gold); }
+.cta-attrib {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--grey);
+  margin-bottom:48px; position:relative; z-index:2;
+}
+
+/* FOOTER */
+.site-footer {
+  background:var(--black); padding:48px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:16px;
+}
+.footer-mark {
+  display:flex; align-items:center; gap:12px;
+  font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:2px;
+}
+.footer-mark span { color:var(--gold); }
+.footer-meta {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--grey-mid);
+}
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  .nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .container, .container-narrow { padding:0 24px; }
+  .page-hero { padding:140px 24px 60px; }
+  .section, .section-tight { padding:80px 24px; }
+  .two-col { grid-template-columns:1fr; gap:24px; }
+  .cards, .cards.cards-4, .cards.cards-2 { grid-template-columns:1fr; }
+  .stats { grid-template-columns:repeat(2,1fr); gap:32px 16px; padding:40px 24px; }
+  .cta-block { padding:80px 24px; }
+  .site-footer { padding:32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://static.wixstatic.com/media/931383_7a3ebebcefb54dc38237d5fd3ef981c5~mv2.png" alt="Arkansas Wolves crest" class="crest">
+    <span class="wordmark">ARKANSAS <span>WOLVES</span></span>
+  </a>
+  <ul class="nav-links"><li><a href="venue.html">The Venue</a></li><li><a href="why-little-rock.html">Why Little Rock</a></li><li><a href="opportunity.html">The Opportunity</a></li><li><a href="vision.html" class="active">The Vision</a></li><li><a href="comparables.html">Comparables</a></li><li><a href="team.html">The Team</a></li></ul>
+  <a href="#contact" class="nav-cta">Schedule a Call</a>
+</nav>
+
+
+<section class="page-hero">
+  <div class="page-hero-bg abstract"></div>
+  <div class="page-hero-content container">
+    <span class="page-eyebrow">04 / Vision</span>
+    <h1 class="page-headline">It's not a team.<br><span class="gold">It's a club.</span></h1>
+    <p class="page-sub">In American sports we say "the team." In every other country with a real soccer tradition, the eight-year-old in the local academy wears the same crest as the player making the senior team. One crest. One pipeline. One community. That's the Arkansas Wolves vision — and it's already most of the way there.</p>
+  </div>
+</section>
+
+
+<section class="stats">
+  <div class="stat"><div class="stat-num">600<span>+</span></div><div class="stat-label">Youth Players in the Academy</div></div>
+  <div class="stat"><div class="stat-num">12<span> SZN</span></div><div class="stat-label">Consecutive Top-Four UPSL Finishes</div></div>
+  <div class="stat"><div class="stat-num">1st</div><div class="stat-label">Arkansas Pro Soccer Team in History</div></div>
+  <div class="stat"><div class="stat-num">60K<span>+</span></div><div class="stat-label">Social Following · Already Built</div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">The Pathway</div>
+    <h2 class="section-title">Eight years old to <span class="gold">the senior team.</span></h2>
+    <p class="section-lede">The Wolves Academy is already the largest youth development system in Arkansas. Wolves PDA — the state's first Player Development Academy — has trained hundreds of elite players. The first professional player signing happened in 2024. The path from local kid to professional soccer player, on Wolves badges the whole way, is operational. The venue is what closes the loop.</p>
+    <div class="cards cards-4" style="margin-top:48px;">
+      <div class="card"><div class="card-num">Stage 1</div><h3 class="card-title" style="font-size:24px;">Wolves Cubs</h3><p class="card-blurb">Ages 5–9 · Grassroots youth · Same crest as the pros from day one.</p></div>
+      <div class="card"><div class="card-num">Stage 2</div><h3 class="card-title" style="font-size:24px;">Wolves Academy</h3><p class="card-blurb">Ages 10–14 · Developmental teams across age groups · State's largest.</p></div>
+      <div class="card"><div class="card-num">Stage 3</div><h3 class="card-title" style="font-size:24px;">Wolves PDA</h3><p class="card-blurb">Ages 15–18 · Player Development Academy · College and pro pipeline.</p></div>
+      <div class="card"><div class="card-num">Stage 4</div><h3 class="card-title" style="font-size:24px;">Wolves First Team</h3><p class="card-blurb">Professional roster · NPSL · NISA · The destination for every kid in the system.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container-narrow">
+    <div class="two-col">
+      <div><div class="section-label">The Academy as Engine</div></div>
+      <div>
+        <p class="section-lede">In well-run lower-division clubs, the youth academy is not a cost center — it's the financial backbone. Phoenix Rising's academy <strong>fully sustains the professional team's operations.</strong> Parents pay for elite training; that revenue cross-subsidizes the senior side and gives the pro team a stable financial floor it can plan against.</p>
+        <p class="section-lede">600+ kids in our academy today, growing year-over-year. With a venue and a complex around it, that number scales 2–3x in five years and the economics of the senior team change permanently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">The Fan Experience</div>
+    <h2 class="section-title">The CMO mandate is simple:<br><span class="gold">own the fan experience.</span></h2>
+    <p class="section-lede">MLS spent five years and a lot of money figuring out their demographic: 18–35, college-educated, disposable income. That's the same demographic every minor league soccer club is fighting for. We've already got them watching us on social. The next move is converting them into season-pass-holders by making the in-venue experience the best three hours they have all month.</p>
+    <div class="cards" style="margin-top:32px;">
+      <div class="card">
+        <div class="card-num">Pre-match</div>
+        <h3 class="card-title">Tailgate Culture</h3>
+        <p class="card-blurb">Park-and-walk environment around the venue. Food trucks, supporters group pre-game ritual, local bar partnerships within walking distance.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">In-match</div>
+        <h3 class="card-title">Supporters Section</h3>
+        <p class="card-blurb">The 18–35 sporters group — organic, drum-led, smoke-bomb energy. The visual that makes every broadcast unforgettable. Front office stays out of the way.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Post-match</div>
+        <h3 class="card-title">Community Rituals</h3>
+        <p class="card-blurb">Player meet-and-greets, free clinics for the academy kids on the same field, Sunday morning recap shows live from the venue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container-narrow">
+    <div class="quote">
+      <p>"It's exciting every day to have a game, to have a concert, to see the venue churning dollars and doing what it needs to. This is a community asset. Soccer is the vehicle."</p>
+      <cite>— Ron Gilmore</cite>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-block" id="contact">
+  <p class="cta-quote">Ready to talk through this in person?</p>
+  <p class="cta-attrib">— A conversation with Ron Gilmore is the next step</p>
+  <a href="mailto:hayley@sqr1.agency" class="btn-primary">Schedule a Conversation</a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-mark">
+    <img src="https://static.wixstatic.com/media/931383_7a3ebebcefb54dc38237d5fd3ef981c5~mv2.png" alt="" class="crest" style="width:36px;height:36px;">
+    ARKANSAS <span>WOLVES</span> FC
+  </div>
+  <div class="footer-meta">Investor Prospectus · Not for Public Distribution · © 2026 Arkansas Wolves FC</div>
+</footer>
+
+</body>
+</html>
