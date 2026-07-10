@@ -204,6 +204,17 @@ a { color:inherit; text-decoration:none; }
 .placeholder-square { aspect-ratio:1/1; }
 .placeholder-portrait { aspect-ratio:3/4; }
 
+/* HEADSHOT — cohesive B&W treatment */
+.headshot {
+  width:100%; display:block;
+  object-fit:cover; object-position:center 20%;
+  filter:grayscale(100%) contrast(1.05) brightness(0.94);
+  background:#1a1a1a;
+  margin-bottom:24px;
+}
+.headshot-portrait { aspect-ratio:3/4; }
+.headshot-square { aspect-ratio:1/1; margin-bottom:20px; }
+
 /* BUTTONS */
 .btn-primary {
   background:var(--gold); color:var(--black);
@@ -304,35 +315,35 @@ a { color:inherit; text-decoration:none; }
     <div class="cards">
 
       <div class="card">
-        <div class="placeholder placeholder-portrait" style="margin-bottom:24px;">[ Headshot · Sean Paul Jones ]</div>
+        <img src="media/team/sean.jpg" alt="Sean Paul Jones headshot" class="headshot headshot-portrait">
         <div class="card-num">Founder · GM · President</div>
         <h3 class="card-title">Sean Paul Jones</h3>
         <p class="card-blurb">Started the club in 2018. The architect of the youth-to-pro pipeline, the relationships with USL and NISA, the academy footprint, and every player on the senior roster. The reason this opportunity exists.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder placeholder-portrait" style="margin-bottom:24px;">[ Headshot · Ron Gilmore ]</div>
+        <img src="media/team/ron.jpg" alt="Ron Gilmore headshot" class="headshot headshot-portrait">
         <div class="card-num">Chief Operations Officer</div>
         <h3 class="card-title">Ron Gilmore</h3>
         <p class="card-blurb">Six prior stadium projects, including Phoenix Rising. Operations background that runs from washing locker room laundry at age seven to commanding 2,300 staff at the 1994 World Cup. The person an investor most needs to hear from.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder placeholder-portrait" style="margin-bottom:24px;">[ Headshot · Victor Werley ]</div>
+        <img src="media/team/victor.jpg" alt="Victor Werley headshot" class="headshot headshot-portrait">
         <div class="card-num">Chief Financial Officer</div>
         <h3 class="card-title">Victor Werley</h3>
         <p class="card-blurb">Capital structuring, partnership economics, ownership-group financial architecture. The person every prospective owner does their final diligence call with.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder placeholder-portrait" style="margin-bottom:24px;">[ Headshot · Justin Kaminski ]</div>
+        <img src="media/team/justin.jpg" alt="Justin Kaminski headshot" class="headshot headshot-portrait">
         <div class="card-num">Chief Growth Officer</div>
         <h3 class="card-title">Justin Kaminski</h3>
         <p class="card-blurb">City relationships, civic strategy, the Measure 3 working group, and the connective tissue between Wolves leadership and the people deciding where downtown Little Rock goes next.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder placeholder-portrait" style="margin-bottom:24px;">[ Headshot · Hayley Evans ]</div>
+        <img src="media/team/hayley.jpg" alt="Hayley Evans headshot" class="headshot headshot-portrait">
         <div class="card-num">Chief Marketing Officer</div>
         <h3 class="card-title">Hayley Evans</h3>
         <p class="card-blurb">CMO consultancy across multiple franchise and service portfolios. Owns the fan experience strategy, the brand system, the website you're on right now, and the marketing function as the club scales.</p>
@@ -356,28 +367,28 @@ a { color:inherit; text-decoration:none; }
     <div class="cards cards-4">
 
       <div class="card">
-        <div class="placeholder" style="aspect-ratio:1/1; margin-bottom:20px;">[ Photo ]</div>
+        <img src="media/team/sabello.jpg" alt="Sabello Hlongwane headshot" class="headshot headshot-square">
         <div class="card-num">Technical Director · Head Coach</div>
         <h3 class="card-title" style="font-size:26px;">Sabello Hlongwane</h3>
         <p class="card-blurb">First-team leadership and overall technical direction for the club.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder" style="aspect-ratio:1/1; margin-bottom:20px;">[ Photo ]</div>
+        <img src="media/team/shane.jpg" alt="Shane Williams headshot" class="headshot headshot-square">
         <div class="card-num">Academy Director</div>
         <h3 class="card-title" style="font-size:26px;">Shane Williams</h3>
         <p class="card-blurb">600+ players across the academy report to his curriculum and coaching staff.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder" style="aspect-ratio:1/1; margin-bottom:20px;">[ Photo ]</div>
+        <img src="media/team/jessica.jpg" alt="Jessica Jacobi headshot" class="headshot headshot-square">
         <div class="card-num">Sponsor Growth</div>
         <h3 class="card-title" style="font-size:26px;">Jessica Jacobi</h3>
         <p class="card-blurb">Sponsor relationships from the existing UPSL-era partner base into the pro era.</p>
       </div>
 
       <div class="card">
-        <div class="placeholder" style="aspect-ratio:1/1; margin-bottom:20px;">[ Photo ]</div>
+        <img src="media/team/dallas.jpg" alt="Dallas Greene headshot" class="headshot headshot-square">
         <div class="card-num">Community Growth</div>
         <h3 class="card-title" style="font-size:26px;">Dallas Greene</h3>
         <p class="card-blurb">Local outreach, school visits, community clinics, the on-the-ground brand.</p>
