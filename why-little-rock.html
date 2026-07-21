@@ -322,7 +322,13 @@ a { color:inherit; text-decoration:none; }
   <div class="container">
     <div class="section-label">Drone Footage Reel</div>
     <h2 class="section-title">Little Rock from above.</h2>
-    <div class="placeholder placeholder-16x9" style="margin-bottom:24px;">[ Drone Reel — replace when 07_Drone_Footage finishes uploading ]</div>
+    <video
+      class="drone-reel"
+      autoplay muted loop playsinline preload="metadata"
+      poster="media/videos/little-rock-drone-poster.jpg"
+      style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block; margin-bottom:24px; background:#0a0a0a;">
+      <source src="media/videos/little-rock-drone.mp4" type="video/mp4">
+    </video>
     <div class="cards" style="margin-top:0;">
       <div class="placeholder" style="aspect-ratio:1/1;">[ River Market drone clip ]</div>
       <div class="placeholder" style="aspect-ratio:1/1;">[ Downtown skyline clip ]</div>
