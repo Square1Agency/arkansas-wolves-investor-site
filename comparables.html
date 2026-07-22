@@ -204,6 +204,27 @@ a { color:inherit; text-decoration:none; }
 .placeholder-square { aspect-ratio:1/1; }
 .placeholder-portrait { aspect-ratio:3/4; }
 
+/* CASE STUDY — copy left, stadium photo right with organic fade */
+.case-study-grid {
+  display:grid; grid-template-columns:1.15fr 1fr; gap:64px; align-items:center;
+}
+.case-study-photo-wrap {
+  display:flex; align-items:center; justify-content:flex-end;
+}
+.stadium-photo {
+  width:100%; max-width:640px; height:auto; display:block;
+  /* Organic fade into the background from all edges — softest on the left where it meets the copy */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28%, #000 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 28%, #000 96%, transparent 100%);
+  -webkit-mask-composite: source-over;
+          mask-composite: add;
+}
+@media (max-width:900px) {
+  .case-study-grid { grid-template-columns:1fr; gap:32px; }
+  .case-study-photo-wrap { justify-content:center; }
+  .stadium-photo { max-width:100%; }
+}
+
 /* BUTTONS */
 .btn-primary {
   background:var(--gold); color:var(--black);
@@ -299,10 +320,17 @@ a { color:inherit; text-decoration:none; }
 
 
 <section class="section">
-  <div class="container-narrow">
+  <div class="container">
+    <div class="case-study-grid">
+      <div>
     <div class="section-label">Case Study 01</div>
     <h2 class="section-title">Sacramento Republic.<br><span class="gold">Idea to 30,000 seats.</span></h2>
     <p class="section-lede">Founded in 2012. Launched in 2014. Opening night: 30,000 fans for a USL Championship match. Warren Smith — the consultant Ozark FC (Northwest Arkansas) eventually hired to launch their club — was the architect. The Sacramento Republic playbook is the most-studied model in lower-division American soccer for a reason: <strong>they got the venue, the brand, and the community on board before they sold a single ticket.</strong></p>
+      </div>
+      <div class="case-study-photo-wrap">
+        <img src="media/photos/stadium-sacramento.jpg" alt="Sacramento Republic stadium" class="stadium-photo">
+      </div>
+    </div>
     <div class="cards cards-4" style="margin-top:32px;">
       <div class="card"><div class="card-num">Market</div><h3 class="card-title" style="font-size:22px;">Sacramento, CA</h3><p class="card-blurb">~2.4M metro · State capital · Underserved sports market</p></div>
       <div class="card"><div class="card-num">Stadium</div><h3 class="card-title" style="font-size:22px;">Heart Health Park</h3><p class="card-blurb">11,442 capacity · Riverfront-adjacent · Concert-ready</p></div>
@@ -313,20 +341,34 @@ a { color:inherit; text-decoration:none; }
 </section>
 
 <section class="section section-dark">
-  <div class="container-narrow">
+  <div class="container">
+    <div class="case-study-grid">
+      <div>
     <div class="section-label">Case Study 02 — The Closest Analog</div>
     <h2 class="section-title">Rhode Island FC.<br><span class="gold">Riverfront blueprint.</span></h2>
     <p class="section-lede">Providence, Rhode Island. Stadium on the river, with three of the five acres dedicated to the venue and the surrounding two acres developed as mixed-use — hotel, restaurants, walkable retail. The owner is a personal friend of Ron's. Their build is two years ahead of ours and is the closest mirror to what the Little Rock riverfront opportunity looks like — same metro size, same riverfront geometry, same downtown-revitalization thesis.</p>
     <p class="section-lede"><strong>What they did right that we're modeling:</strong> they nailed the venue before they did anything else. Logo came after the venue. Brand came after the venue. Sponsorship deck came after the venue. When investors ask "where will they play," the answer was already on the table.</p>
+      </div>
+      <div class="case-study-photo-wrap">
+        <img src="media/photos/stadium-rhode-island.jpg" alt="Rhode Island FC riverfront stadium" class="stadium-photo">
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container-narrow">
+  <div class="container">
+    <div class="case-study-grid">
+      <div>
     <div class="section-label">Case Study 03 — Small Market, Legacy Ownership</div>
     <h2 class="section-title">Boise · Simplot.<br><span class="gold">A family decided to leave a legacy.</span></h2>
     <p class="section-lede">Ron's most recent project. The Simplot family — the people whose company supplies every French fry McDonald's serves nationally — were not a soccer family until their kids started playing. The pitch wasn't return on investment. The pitch was: "Do you want your son to have a team to aspire to play for? Do you want to leave a legacy in this city?" The answer was yes. The result is a thriving club in a market the league said was too small to support pro soccer.</p>
     <p class="section-lede">Little Rock is bigger than Boise. The conversation Ron will have with prospects here is, structurally, the same conversation.</p>
+      </div>
+      <div class="case-study-photo-wrap">
+        <img src="media/photos/stadium-boise.jpg" alt="Boise / Simplot stadium" class="stadium-photo">
+      </div>
+    </div>
   </div>
 </section>
 
