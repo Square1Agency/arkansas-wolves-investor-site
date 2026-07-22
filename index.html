@@ -320,6 +320,20 @@
   }
 
   /* ---------- INTRO ---------- */
+  .intro-wrap {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--black);
+  }
+  .intro-wrap::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      linear-gradient(180deg, var(--black) 0%, rgba(11,10,9,0.65) 18%, rgba(11,10,9,0.55) 50%, rgba(11,10,9,0.7) 82%, var(--black) 100%),
+      url("media/photos/opportunity-bg.jpg") center/cover no-repeat;
+  }
+  .intro-wrap > .intro { position: relative; z-index: 1; }
+
   .intro {
     padding: 120px 48px;
     max-width: 1200px;
@@ -614,18 +628,20 @@
 </section>
 
 <!-- INTRO -->
-<section class="intro">
-  <div>
-    <div class="intro-label">The Opportunity</div>
-  </div>
-  <div class="intro-body">
-    <p>
-      Little Rock has a population, an income base, and a downtown revitalization story that fits the metro profile every U.S. pro soccer league is looking for. <strong>It does not yet have a pro soccer team.</strong> The Wolves have spent eight years earning the right to be that team — twelve consecutive top-four UPSL finishes, the first Arkansas club to host UPSL regionals, and the state's largest youth academy.
-    </p>
-    <p>
-      What we are raising for is the next chapter: <strong>a venue, an ownership group, and the operating runway</strong> to turn a state's most successful soccer organization into a generational community asset.
-    </p>
-  </div>
+<section class="intro-wrap">
+  <section class="intro">
+    <div>
+      <div class="intro-label">The Opportunity</div>
+    </div>
+    <div class="intro-body">
+      <p>
+        Little Rock has a population, an income base, and a downtown revitalization story that fits the metro profile every U.S. pro soccer league is looking for. <strong>It does not yet have a pro soccer team.</strong> The Wolves have spent eight years earning the right to be that team — twelve consecutive top-four UPSL finishes, the first Arkansas club to host UPSL regionals, and the state's largest youth academy.
+      </p>
+      <p>
+        What we are raising for is the next chapter: <strong>a venue, an ownership group, and the operating runway</strong> to turn a state's most successful soccer organization into a generational community asset.
+      </p>
+    </div>
+  </section>
 </section>
 
 <!-- SECTIONS -->
